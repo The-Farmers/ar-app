@@ -6,7 +6,7 @@
 
     <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
     <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
-    <script src="photo-mode.js"></script>
+    <!-- <script src="photo-mode.js"></script> -->
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/xrextras -->
@@ -29,12 +29,12 @@
 
   <body>
     <!-- These HTML elements are used to show an UI laid over the scene -->
-    <div id="photoModeContainer" style="display: none">
+    <!-- <div id="photoModeContainer" style="display: none">
       <img id="photoModeImage" />
       <div id="flash"></div>
       <div id="shutterButton"></div>
       <div id="closeButton"></div>
-    </div>
+    </div> -->
 
     <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
@@ -44,7 +44,6 @@
       xrextras-loading
       xrextras-runtime-error
       xrextras-tap-recenter
-      photo-mode
     >
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
