@@ -35,7 +35,7 @@
             tomato.setAttribute('rotation', randomRotation)
 
             // Set velocity, rotated with camera direction
-            const velocity = new THREE.Vector3(0, 5, -20)
+            const velocity = new THREE.Vector3(0, 0, -20)
             velocity.applyQuaternion(camera.object3D.quaternion)
             tomato.setAttribute('velocity', velocity)
 
@@ -129,7 +129,7 @@
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/dmzbb8UisNv -->
-        <a-asset-item id="tomatoModel" src="tomato.glb"></a-asset-item>
+        <a-asset-item id="tomatoModel" src="Mesh_Trout.glb"></a-asset-item>
         <!-- Credit to Mike Koenig for the sound clip: http://soundbible.com/642-Splat.html -->
         <a-asset-item preload="auto" class="a-sound" id="splatSrc" src="splat.mp4" response-type="arraybuffer"></a-asset-item>
       </a-assets>
