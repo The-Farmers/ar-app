@@ -19,6 +19,7 @@
     ></script>
 
     <script>
+      const num = 1;
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {
@@ -70,6 +71,7 @@
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
         <a-asset-item id="treeModel" src="TreeBell.glb"></a-asset-item>
         <a-asset-item id="unicornModel" src="unicorn.glb"></a-asset-item>
+        <a-asset-item id="tomatoModel" src="tomato.glb"></a-asset-item>
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
