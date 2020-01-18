@@ -42,7 +42,7 @@ AFRAME.registerComponent('menuButton',{
         }
       }*/
       // listen for clicks
-      document.getElementById("menu").addEventListener("click", event => {
+      menuBtn.addEventListener("click", event => {
         clickHandler();
       });
     }
