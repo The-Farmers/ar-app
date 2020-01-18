@@ -83,10 +83,9 @@
   height: 3em;
   border-radius: 50%;
   z-index: 2;
-  margin-right: 2em;
-  margin-left: auto;
-  margin-bottom: 2em;
-  margin-top: auto;
+  right: 2em;
+  bottom: 2em;
   border: 8px solid #00008b;
   background-color: #add8e6;
+  position: absolute;
 }
