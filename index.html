@@ -21,6 +21,12 @@
 
     <script>
       let num = 0;
+
+      function toggle() {
+        num = (num + 1) % 4;
+      }
+
+
       function getModelName() {
         switch(num) {
           case 1:
@@ -38,44 +44,6 @@
         return modelName;
       }
       
-      AFRAME.registerComponent("launch-btn", {
-      init: function() {
-        const btn = document.getElementById("launchBtn");
-        const scene = this.el.sceneEl;
-        let isPlaying = false;
-
-        // let palette = ["#08FF00", "#F7FF00", "#FF0000", "#00FFF3", "#000FFF", "#A200FF", "#FF0093"]
-        let palette = ["#FF1111", "#08FF00", "#00FFF3"];
-
-        num = (num + 1) % 4;
-
-        // var clickHandler = function(e) {
-        //   if (!isPlaying) {
-        //     btn.removeEventListener("click", clickHandler);
-        //     btn.style.backgroundColor = "#555";
-        //     btn.style.borderColor = "#888";
-
-        //     scene.removeAttribute("tap-place");
-
-        //     isPlaying = true;
-        //   }
-
-        // function add() {
-        //   btn.addEventListener("click", clickHandler);
-        //   btn.style.backgroundColor = "darkred";
-        //   btn.style.borderColor = "red";
-        //   console.log("btn ready!");
-        // }
-
-        // scene.addEventListener("btnready", event => {
-        //   add();
-        // });
-    }
-});
-
-
-
-
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {          
@@ -116,7 +84,7 @@
   </head>
 
   <body>
-    <div id="launchBtn"></div>
+    <div id="launchBtn" onclick=toggle()></div>
     <div id="menu"></div>
 
     <!-- We must add the tap-place component to the scene so it has an effect -->
