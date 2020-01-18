@@ -20,7 +20,7 @@
 
     <script>
       let num = 1;
-      let modelName = "#unicornModel"; 
+      let modelName = "#tomatoModel"; 
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {
@@ -53,7 +53,7 @@
             newElement.setAttribute("visible", "false");
             newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
-            newElement.setAttribute("gltf-model", "#unicornModel");
+            newElement.setAttribute("gltf-model", modelName);
             this.el.sceneEl.appendChild(newElement);
 
             newElement.addEventListener("model-loaded", () => {
