@@ -2,7 +2,7 @@
     width: 5em;
     height: 5em;
     position: absolute;
-    right: 2em;
+    left: 1em;
     bottom: 3em;
     border: 8px solid red;
     background-color: darkred;
