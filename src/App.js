@@ -21,7 +21,7 @@ function App() {
           {
             // <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
           }
-          <a-asset-item id="treeModel" src="#treeModel"></a-asset-item>
+          <a-asset-item id="treeModel" src="tree.glb"></a-asset-item>
         </a-assets>
 
         {
