@@ -1,8 +1,8 @@
 #menu {
     width: 3em;
     height: 3em;
-    position: absolute;
-    margin: 10 auto;
+    position: relative;
+    margin: 0;
     margin-top: 1vh;
     margin-left: 1vh;
     border: 8px solid rgb(126, 248, 78);
