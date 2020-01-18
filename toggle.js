@@ -1,17 +1,17 @@
 let num = 0;
 
 function toggle() {
-  num = num % 3;
+  num = (num + 1) % 4;
 }
 
 function getModelName() {
   switch (num) {
-    case 0:
-      return "#unicornModel";
     case 1:
-      return "#tomatoModel";
+      return "treeMode";
     case 2:
-      return "#treeModel";
+      return "#tomatoModel";
+    case 3:
+      return "#unicornModel";
     default:
       return "#flyingSaucerModel";
   }
