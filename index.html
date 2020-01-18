@@ -12,17 +12,20 @@
     <link rel="stylesheet" href="menu.css" />
     <script src="rocket.js"></script>
     <link rel="stylesheet" href="button.css" />
+    <!--
     <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
     <script src="photo-mode.js"></script>
+  -->
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/xrextras -->
+    <!--
     <script defer src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
     <script
       defer
       src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"
     ></script>
-
+    -->
     <!-- 8thWall Web - Replace the app key here with your own app key -->
     <script
       async
@@ -30,21 +33,24 @@
     ></script>
 
     <script src="tap-place.js"></script>
-
+      <!--
     <link rel="stylesheet" href="index.css" />
+    -->
   </head>
 
   <body>
     <div id="launchBtn"></div>
     <div id="menu"></div>
+    <button type="button" onclick="alert('Hello world!')" data-toggle="modal" data-target="#foo"></button>
     <!-- These HTML elements are used to show an UI laid over the scene -->
+    <!--
     <div id="photoModeContainer" style="display: none">
       <img id="photoModeImage" />
       <div id="flash"></div>
       <div id="shutterButton"></div>
       <div id="closeButton"></div>
     </div>
-
+  -->
     <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
       xrweb
