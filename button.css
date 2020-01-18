@@ -1,0 +1,13 @@
+#launchBtn {
+  width: 5em;
+  height: 5em;
+  position: relative;
+  margin: 0 auto;
+  margin-left: 3vh;
+  margin-top: 70vh;
+  border: 8px solid #888;
+  background-color: #555;
+  color: black;
+  border-radius: 50%;
+  z-index: 1;
+}
