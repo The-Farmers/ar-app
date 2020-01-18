@@ -1,0 +1,12 @@
+#launch {
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    right: 3em;
+    bottom: 3em;
+    border: 8px solid red;
+    background-color: darkred;
+    color: white;
+    border-radius: 50%;
+    z-index: 2;
+}
