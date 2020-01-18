@@ -4,8 +4,8 @@
     position: absolute;
     right: 1em;
     bottom: 3em;
-    border: 8px solid green;
-    background-color: darkgreen;
+    border: 8px solid rgb(90, 189, 255);
+    background-color: rgb(3, 139, 230);
     color: white;
     border-radius: 50%;
     z-index: 2;
