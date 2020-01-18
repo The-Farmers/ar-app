@@ -23,6 +23,7 @@
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {
+          num = (num + 1) % 3;
           const ground = document.getElementById("ground");
           ground.addEventListener("click", event => {
             // Create new entity for the new object
