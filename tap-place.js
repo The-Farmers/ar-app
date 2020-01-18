@@ -16,7 +16,7 @@ AFRAME.registerComponent("tap-place", {
       newElement.setAttribute("visible", "false");
       newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
-      newElement.setAttribute("gltf-model", "#treeModel");
+      newElement.setAttribute("gltf-model", getModelName());
       this.el.sceneEl.appendChild(newElement);
 
       newElement.addEventListener("model-loaded", () => {

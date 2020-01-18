@@ -1,101 +1,94 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8" />
+    <title>8th Wall Web: Tap to place</title>
 
-    <title>8th Wall Web: Image Target to SLAM</title>
-
-    <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
-    <script src="//cdn.8thwall.com/web/aframe/aframe-extras-4.2.0.min.js"></script>
-
-    <script src="components.js"></script>
+    <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+    <script src="photo-mode.js"></script>
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/xrextras -->
-    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script defer src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+    <script
+      defer
+      src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"
+    ></script>
 
     <!-- 8thWall Web - Replace the app key here with your own app key -->
-    <script src="//apps.8thwall.com/xrweb?appKey=nH5G0YwR160wpl2MyAZU0RDuLheeAGRBdt2mwsUgwCutnhjcnxjKfZASRBrI2c4AcJQXXV"></script>
+    <script
+      async
+      src="//apps.8thwall.com/xrweb?appKey=nH5G0YwR160wpl2MyAZU0RDuLheeAGRBdt2mwsUgwCutnhjcnxjKfZASRBrI2c4AcJQXXV"
+    ></script>
 
-    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="toggle.js"></script>
+    <script src="tap-place.js"></script>
+
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
-    <div id="shake-tree" style="display: none;">
-      <h2>
-        Tap to shake tree!
-      </h2>
+    <!-- These HTML elements are used to show an UI laid over the scene -->
+    <div id="photoModeContainer" style="display: none">
+      <img id="photoModeImage" />
+      <div id="flash"></div>
+      <div id="shutterButton"></div>
+      <div id="closeButton"></div>
     </div>
 
+    <div id="toggleBtn" onClick="toggle()"></div>
+
+    <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
       xrweb
+      tap-place
       xrextras-almost-there
       xrextras-loading
       xrextras-runtime-error
+      photo-mode
     >
+      <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
-        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/dA5osnS0Rzj -->
+        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
+        <a-asset-item id="treeModel" src="tree.glb"></a-asset-item>
+        <a-asset-item id="unicornModel" src="unicorn.glb"></a-asset-item>
+        <a-asset-item id="tomatoModel" src="tomato.glb"></a-asset-item>
         <a-asset-item
-          id="palm-glb"
-          src="https://cdn.glitch.com/db06aac1-fd53-4355-a45e-1d6df0f20621%2Ftree-palm.glb"
-        ></a-asset-item>
-        <a-asset-item
-          id="coconut"
-          src="https://cdn.glitch.com/db06aac1-fd53-4355-a45e-1d6df0f20621%2Fcoconut-single.glb"
+          id="flyingSaucerModel"
+          src="flying-saucer.glb"
         ></a-asset-item>
       </a-assets>
 
+      <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
       <a-camera
-        position="0 4 10"
+        position="0 8 0"
         raycaster="objects: .cantap"
-        cursor="fuse: false; rayOrigin: mouse;"
+        cursor="
+          fuse: false;
+          rayOrigin: mouse;"
       >
       </a-camera>
 
-      <a-entity physics-image-target="name: duck" visible="false">
-        <a-entity
-          id="palm"
-          gltf-model="#palm-glb"
-          class="cantap"
-          scale="0.001 0.001 0.001"
-          rotation="90 0 0"
-          shadow
-        ></a-entity>
-        <a-entity id="attachment" position="0 0.1 0.8"></a-entity>
-      </a-entity>
-
       <a-entity
         light="type: directional;
-             intensity: 0.8;
-             castShadow: true;
-             shadowMapHeight:2048;
-             shadowMapWidth:2048;
-             shadowCameraNear: -5;
-             shadowCameraRight: 25;
-             shadowCameraLeft: -25;
-             shadowCameraTop: 25;
-             shadowCameraBottom: -25;"
-        position="0.5 5 0"
-        shadow
+               intensity: 0.8;"
+        position="1 4.3 2.5"
       >
       </a-entity>
 
-      <a-light type="ambient" intensity="0.5"></a-light>
+      <a-light type="ambient" intensity="1"></a-light>
 
-      <a-box
-        id="floor"
-        static-body
-        position="0 -0.5 0"
-        rotation="-90 0 0"
-        height="100"
-        width="100"
-        shadow
-        shadow-material
-      ></a-box>
+      <!-- Adding the cantap class allows the ground to be clicked -->
+      <a-entity
+        id="ground"
+        class="cantap"
+        geometry="primitive: box"
+        material="color: #ffffff; transparent: true; opacity: 0.0"
+        scale="1000 2 1000"
+        position="0 -1 0"
+      >
+      </a-entity>
     </a-scene>
   </body>
 </html>
