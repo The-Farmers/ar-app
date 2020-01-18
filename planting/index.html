@@ -1,53 +1,27 @@
-<<<<<<< HEAD
-!DOCTYPE html>
-=======
->>>>>>> abfb6561c250968cfbce38297599e6ae75356818
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>8th Wall Web - Fireworks</title>
+    <title>8th Wall Web: Tap to place</title>
 
     <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
-    <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
-    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
-    <script src="aframe-particle-system-component.js"></script>
-    <script src="menu.js"></script>
-    <link rel="stylesheet" href="menu.css" />
-    <script src="rocket.js"></script>
-    <link rel="stylesheet" href="button.css" />
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+    <script src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"></script>
+
+    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+    <script defer src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
 
     <!-- 8thWall Web - Replace the app key here with your own app key -->
     <script
       async
       src="//apps.8thwall.com/xrweb?appKey=nH5G0YwR160wpl2MyAZU0RDuLheeAGRBdt2mwsUgwCutnhjcnxjKfZASRBrI2c4AcJQXXV"
     ></script>
-<<<<<<< HEAD
 
     <script>
-      let num = 0;
-
-      function getModelName() {
-        num = (num + 1) % 4
-        switch(num) {
-          case 1:
-            return "#unicornModel";
-            break;
-          case 2: 
-            return "#tomatoModel";
-            break;
-          case 3: 
-            return "#treeModel";
-            break;
-          default:
-            return "#tomatoModel";
-        }
-        return modelName;
-      }
-
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {
-          
           const ground = document.getElementById("ground");
           ground.addEventListener("click", event => {
             // Create new entity for the new object
@@ -61,10 +35,9 @@
             newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
 
             newElement.setAttribute("visible", "false");
-            newElement.setAttribute("scale", "0.01 0.01 0.01");
+            newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
-            //getModelName();
-            newElement.setAttribute("gltf-model", getModelName());
+            newElement.setAttribute("gltf-model", "#treeModel");
             this.el.sceneEl.appendChild(newElement);
 
             newElement.addEventListener("model-loaded", () => {
@@ -81,40 +54,21 @@
         }
       });
     </script>
-=======
->>>>>>> abfb6561c250968cfbce38297599e6ae75356818
   </head>
 
   <body>
-    <div id="launchBtn"></div>
-    <div id="menu"></div>
-
     <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
       xrweb
+      tap-place
       xrextras-almost-there
       xrextras-loading
       xrextras-runtime-error
-      launch-btn
-      tap-place
-      style="z-index: 0"
     >
+      <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
-<<<<<<< HEAD
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
         <a-asset-item id="treeModel" src="TreeBell.glb"></a-asset-item>
-        <a-asset-item id="unicornModel" src="unicorn.glb"></a-asset-item>
-        <a-asset-item id="tomatoModel" src="tomato.glb"></a-asset-item>
-=======
-        <a-asset-item
-          id="poleModel"
-          src="https://cdn.glitch.com/3c316d74-e496-4344-9ba2-67a411cb8f72%2Fpole.glb"
-        ></a-asset-item>
-        <a-asset-item
-          id="rocketModel"
-          src="https://cdn.glitch.com/3c316d74-e496-4344-9ba2-67a411cb8f72%2Frocket.glb"
-        ></a-asset-item>
->>>>>>> abfb6561c250968cfbce38297599e6ae75356818
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
@@ -141,7 +95,7 @@
         id="ground"
         class="cantap"
         geometry="primitive: box"
-        material="color: #333; transparent: true; opacity: 0"
+        material="color: #ffffff; transparent: true; opacity: 0.0"
         scale="1000 2 1000"
         position="0 -1 0"
       >
