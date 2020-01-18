@@ -3,7 +3,7 @@ AFRAME.registerComponent('menuButton',{
       const menuBtn = document.getElementById("menu");
       let menuOpen = false;
       
-      var clickHandler = function(e) {
+      function clickHandler() {
         if (menuOpen) {
           // make options disappear
           /*
@@ -42,8 +42,9 @@ AFRAME.registerComponent('menuButton',{
         }
       }*/
       // listen for clicks
-      document.getElementById("menu").addEventListener("click", clickHandler);
-  
+      document.getElementById("menu").addEventListener("click", event => {
+        clickHandler();
+      });
     }
   });
   
