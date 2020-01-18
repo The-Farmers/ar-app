@@ -1,5 +1,4 @@
 import React from "react";
-import chicken from "./Model/chicken.gltf";
 import "./App.css";
 
 function App() {
@@ -22,7 +21,10 @@ function App() {
           {
             // <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
           }
-          <a-asset-item id="treeModel" src={chicken}></a-asset-item>
+          <a-asset-item
+            id="treeModel"
+            src="./Model/chicken.gltf"
+          ></a-asset-item>
         </a-assets>
 
         {
