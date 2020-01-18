@@ -21,20 +21,24 @@
     <script>
       let num = 1;
       let modelName = "#tomatoModel"; 
-      num = (num + 1) % 3;
-        switch(num) {
-          case 1:
-            modelName = "#unicornModel";
-            break;
-          case 2: 
-            modelName = "#tomatoModel";
-            break;
-          case 3: 
-            modelName = "#treeModel";
-            break;
-          default:
-            modelName = "#tomatoModel";
+
+      if (num == 1) {
+        modelName = "#treeModel"
       }
+      // num = (num + 1) % 3;
+      //   switch(num) {
+      //     case 1:
+      //       modelName = "#unicornModel";
+      //       break;
+      //     case 2: 
+      //       modelName = "#tomatoModel";
+      //       break;
+      //     case 3: 
+      //       modelName = "#treeModel";
+      //       break;
+      //     default:
+      //       modelName = "#tomatoModel";
+      // }
       // Component that places trees where the ground is clicked
       AFRAME.registerComponent("tap-place", {
         init: function() {
