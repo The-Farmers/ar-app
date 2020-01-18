@@ -22,7 +22,6 @@
     <script>
       let num = 0;
       function getModelName() {
-        num = (num + 1) % 4
         switch(num) {
           case 1:
             return "#unicornModel";
@@ -38,43 +37,80 @@
         }
         return modelName;
       }
+      
+      AFRAME.registerComponent("launch-btn", {
+      init: function() {
+        const btn = document.getElementById("launchBtn");
+        const scene = this.el.sceneEl;
+        let isPlaying = false;
 
-      // Component that places trees where the ground is clicked
-      AFRAME.registerComponent("tap-place", {
-        init: function() {
+        // let palette = ["#08FF00", "#F7FF00", "#FF0000", "#00FFF3", "#000FFF", "#A200FF", "#FF0093"]
+        let palette = ["#FF0000", "#FFFFFF", "#0000FF"];
+
+        var clickHandler = function(e) {
           
-          const ground = document.getElementById("ground");
-          ground.addEventListener("click", event => {
-            // Create new entity for the new object
-            const newElement = document.createElement("a-entity");
+          if (!isPlaying) {
+            btn.removeEventListener("click", clickHandler);
+            btn.style.backgroundColor = "#555";
+            btn.style.borderColor = "#888";
 
-            // The raycaster gives a location of the touch in the scene
-            const touchPoint = event.detail.intersection.point;
-            newElement.setAttribute("position", touchPoint);
+            scene.removeAttribute("tap-place");
+            num = (num + 1) % 4
+            isPlaying = true;
+        };
 
-            const randomYRotation = Math.random() * 360;
-            newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
-
-            newElement.setAttribute("visible", "false");
-            newElement.setAttribute("scale", "0.01 0.01 0.01");
-
-            //getModelName();
-            newElement.setAttribute("gltf-model", getModelName());
-            this.el.sceneEl.appendChild(newElement);
-
-            newElement.addEventListener("model-loaded", () => {
-              // Once the model is loaded, we are ready to show it popping in using an animation
-              newElement.setAttribute("visible", "true");
-              newElement.setAttribute("animation", {
-                property: "scale",
-                to: "0.01 0.01 0.01",
-                easing: "easeOutElastic",
-                dur: 800
-              });
-            });
-          });
+        function add() {
+          btn.addEventListener("click", clickHandler);
+          btn.style.backgroundColor = "darkred";
+          btn.style.borderColor = "red";
+          console.log("btn ready!");
         }
-      });
+
+        scene.addEventListener("btnready", event => {
+          add();
+        });
+      }
+    }
+    });
+
+
+
+
+          // Component that places trees where the ground is clicked
+          AFRAME.registerComponent("tap-place", {
+            init: function() {          
+              const ground = document.getElementById("ground");
+              ground.addEventListener("click", event => {
+                // Create new entity for the new object
+                const newElement = document.createElement("a-entity");
+
+                // The raycaster gives a location of the touch in the scene
+                const touchPoint = event.detail.intersection.point;
+                newElement.setAttribute("position", touchPoint);
+
+                const randomYRotation = Math.random() * 360;
+                newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
+
+                newElement.setAttribute("visible", "false");
+                newElement.setAttribute("scale", "0.01 0.01 0.01");
+
+                //getModelName();
+                newElement.setAttribute("gltf-model", getModelName());
+                this.el.sceneEl.appendChild(newElement);
+
+                newElement.addEventListener("model-loaded", () => {
+                  // Once the model is loaded, we are ready to show it popping in using an animation
+                  newElement.setAttribute("visible", "true");
+                  newElement.setAttribute("animation", {
+                    property: "scale",
+                    to: "0.01 0.01 0.01",
+                    easing: "easeOutElastic",
+                    dur: 800
+                  });
+                });
+              });
+            }
+          });
     </script>
 
   </head>
