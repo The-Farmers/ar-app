@@ -35,7 +35,7 @@
             tomato.setAttribute('rotation', randomRotation)
 
             // Set velocity, rotated with camera direction
-            const velocity = new THREE.Vector3(-5, 0, -25)
+            const velocity = new THREE.Vector3(0, 8, -25)
             velocity.applyQuaternion(camera.object3D.quaternion)
             tomato.setAttribute('velocity', velocity)
 
