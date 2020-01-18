@@ -1,7 +1,7 @@
 #menu {
     width: 3em;
     height: 3em;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     margin-top: 30vh;
     margin-left: 1vh;
