@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -25,7 +25,6 @@
           const ground = document.getElementById("ground");
           ground.addEventListener("click", event => {
             // Create new entity for the new object
-                        
             const newElement = document.createElement("a-entity");
 
             // The raycaster gives a location of the touch in the scene
@@ -38,17 +37,8 @@
             newElement.setAttribute("visible", "false");
             newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
-            // num = (num + 1) % 3;
-            // if (num == 1) {
-            //   newElement.setAttribute("gltf-model", "#treeModel");
-            //   this.el.sceneEl.appendChild(newElement);
-            // } else if (num == 2) {
-            //   newElement.setAttribute("gltf-model", "#uniModel");
-            //   this.el.sceneEl.appendChild(newElement);
-            // } else if (num == 3) {
-            //   newElement.setAttribute("gltf-model", "#uniModel");
-            //   this.el.sceneEl.appendChild(newElement);
-            // }
+            newElement.setAttribute("gltf-model", "#treeModel");
+            this.el.sceneEl.appendChild(newElement);
 
             newElement.addEventListener("model-loaded", () => {
               // Once the model is loaded, we are ready to show it popping in using an animation
@@ -79,8 +69,6 @@
       <a-assets>
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
         <a-asset-item id="treeModel" src="TreeBell.glb"></a-asset-item>
-        <!-- <a-asset-item id="uniModel" src="unicorn.glb"></a-asset-item>
-        <a-asset-item id="tomatoModel" src="tomato.glb"></a-asset-item> -->
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
