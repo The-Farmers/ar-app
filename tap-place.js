@@ -1,43 +1,3 @@
-let num = 0;
-
-function toggle() {
-  num = (num + 1) % 6;
-}
-
-function getModelName() {
-  switch (num) {
-    case 1:
-      return "#treeModel";
-    case 2:
-      return "#tomatoModel";
-    case 3:
-      return "#unicornModel";
-    case 4:
-      return "#lilyModel";
-    case 5:
-      return "#shrekModel";
-    default:
-      return "#flyingSaucerModel";
-  }
-}
-
-function getModelScale() {
-  switch (num) {
-    case 1:
-      return "0.1 0.1 0.1";
-    case 2:
-      return "0.1 0.1 0.1";
-    case 3:
-      return "0.4 0.4 0.4";
-    case 4:
-      return "1 1 1"
-    case 5:
-      return "0.1 0.1 0.1"
-    default:
-      return "1 1 1";
-  }
-}
-
 // Component that places trees where the ground is clicked
 AFRAME.registerComponent("tap-place", {
   init: function() {
@@ -45,6 +5,9 @@ AFRAME.registerComponent("tap-place", {
     ground.addEventListener("click", event => {
       // Create new entity for the new object
       const newElement = document.createElement("a-entity");
+
+      this.el.emit("btnready", "detail", true);
+      newElement.classList.add("rocket");
 
       // The raycaster gives a location of the touch in the scene
       const touchPoint = event.detail.intersection.point;
@@ -64,8 +27,9 @@ AFRAME.registerComponent("tap-place", {
         newElement.setAttribute("visible", "true");
         newElement.setAttribute("animation", {
           property: "scale",
-          to: getModelScale(),
-          easing: "easeOutElastic",          dur: 800
+          to: getModalScale(),
+          easing: "easeOutElastic",
+          dur: 800
         });
       });
     });
