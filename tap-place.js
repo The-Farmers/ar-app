@@ -7,7 +7,7 @@ AFRAME.registerComponent("tap-place", {
       const newElement = document.createElement("a-entity");
 
       if (getModelName() == "#rocketModel") {
-        this.el.emit("btnready");
+        this.el.emit("btnready", "detail", true);
         newElement.classList.add("rocket");
       }
 
