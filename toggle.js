@@ -40,12 +40,12 @@ function getModalScale() {
     case 5:
       return "200 200 200";
     case 6:
-      return "0.012 0.012 0.012";
+      return "0.015 0.015 0.015";
     case 7:
-      return "1 1 1";
+      return "0.8 0.8 0.8";
     case 8:
       return "5 5 5";
     default:
-      return "25 25 25";
+      return "18 18 18";
   }
 }
