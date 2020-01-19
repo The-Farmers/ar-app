@@ -22,15 +22,15 @@ function getModelName() {
 function getModelScale() {
   switch (num) {
     case 1:
-      return "0.0001 0.0001 0.0001";
+      return "0.1 0.1 0.1";
     case 2:
-      return "0.0002 0.0002 0.0002";
+      return "0.1 0.1 0.1";
     case 3:
-      return "0.03 0.03 0.03";
+      return "1 1 1";
     case 4:
-      return "100 100 100"
+      return "5 5 5"
     default:
-      return "0.0001 0.0001 0.0001";
+      return "1 1 1";
   }
 }
 
@@ -50,7 +50,7 @@ AFRAME.registerComponent("tap-place", {
       newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
 
       newElement.setAttribute("visible", "false");
-      newElement.setAttribute("scale", getModelScale());
+      newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
       newElement.setAttribute("gltf-model", getModelName());
       this.el.sceneEl.appendChild(newElement);
@@ -60,9 +60,8 @@ AFRAME.registerComponent("tap-place", {
         newElement.setAttribute("visible", "true");
         newElement.setAttribute("animation", {
           property: "scale",
-          to: "0.01 0.01 0.01",
-          easing: "easeOutElastic",
-          dur: 800
+          to: getModelScale(),
+          easing: "easeOutElastic",          dur: 800
         });
       });
     });
