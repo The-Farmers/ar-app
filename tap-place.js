@@ -13,9 +13,9 @@ function getModelName() {
     case 3:
       return "#unicornModel";
     case 4:
-    return "#lilyModel"
+      return "#lilyModel";
     case 5:
-      return "#shrekModel"
+      return "#shrekModel";
     default:
       return "#flyingSaucerModel";
   }
