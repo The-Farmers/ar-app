@@ -1,7 +1,7 @@
 let num = 0;
 
 function toggle() {
-  num = (num + 1) % 4;
+  num = (num + 1) % 5;
 }
 
 function getModelName() {
@@ -13,7 +13,7 @@ function getModelName() {
     case 3:
       return "#unicornModel";
     case 4:
-    return "#flyingSaucerModel"
+    return "#lilyModel"
     default:
       return "#flyingSaucerModel";
   }
@@ -28,7 +28,7 @@ function getModelScale() {
     case 3:
       return "0.03 0.03 0.03";
     case 4:
-      return "0.001 0.001 0.001"
+      return "1 1 1"
     default:
       return "0.0001 0.0001 0.0001";
   }
@@ -50,7 +50,7 @@ AFRAME.registerComponent("tap-place", {
       newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
 
       newElement.setAttribute("visible", "false");
-      newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
+      newElement.setAttribute("scale", getModelScale());
 
       newElement.setAttribute("gltf-model", getModelName());
       this.el.sceneEl.appendChild(newElement);
