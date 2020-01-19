@@ -6,6 +6,8 @@
 
     <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
     <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+    <script src="aframe-particle-system-component.js"></script>
+    <script src="rocket.js"></script>
     <script src="photo-mode.js"></script>
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
@@ -37,7 +39,9 @@
       <div id="closeButton"></div>
     </div>
 
-    <div id="toggleBtn" onclick="toggle()"></div>
+    <div id="toggleBtn" onclick="toggle()">
+      <p>Shuffle</p>
+    </div>
 
     <!-- We must add the tap-place component to the scene so it has an effect -->
     <a-scene
@@ -57,6 +61,14 @@
         <a-asset-item
           id="flyingSaucerModel"
           src="flying-saucer.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="poleModel"
+          src="https://cdn.glitch.com/3c316d74-e496-4344-9ba2-67a411cb8f72%2Fpole.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="rocketModel"
+          src="https://cdn.glitch.com/3c316d74-e496-4344-9ba2-67a411cb8f72%2Frocket.glb"
         ></a-asset-item>
       </a-assets>
 
