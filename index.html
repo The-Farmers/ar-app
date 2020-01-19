@@ -32,7 +32,7 @@
             newElement.setAttribute('rotation', '0 ' + randomYRotation + ' 0')
 
             newElement.setAttribute('visible', 'false')
-            newElement.setAttribute('scale', '0.01 0.01 0.01')
+            newElement.setAttribute('scale', '10 10 10')
 
             newElement.setAttribute('gltf-model', '#treeModel')
             this.el.sceneEl.appendChild(newElement)
@@ -42,7 +42,7 @@
               newElement.setAttribute('visible', 'true')
               newElement.setAttribute('animation', {
                 property: 'scale',
-                to: '1 1 1',
+                to: '0.01 0.01 0.01',
                 easing: 'easeOutElastic',
                 dur: 800,
               })
@@ -81,7 +81,7 @@
         light="type: directional;
                intensity: 0.8;"
         position="1 4.3 2.5"
-        animation= "property: rotation; to: 0 360 0; loop: true; dur: 10000";>
+        >
       </a-entity>
 
       <a-light type="ambient" intensity="1"></a-light>
