@@ -7,13 +7,30 @@ function toggle() {
 function getModelName() {
   switch (num) {
     case 1:
-      return "treeMode";
+      return "#treeModel";
     case 2:
       return "#tomatoModel";
     case 3:
       return "#unicornModel";
+    case 4:
+    return "#flyingSaucerModel"
     default:
       return "#flyingSaucerModel";
+  }
+}
+
+function getModelScale() {
+  switch (num) {
+    case 1:
+      return "0.0001 0.0001 0.0001";
+    case 2:
+      return "0.0002 0.0002 0.0002";
+    case 3:
+      return "0.03 0.03 0.03";
+    case 4:
+      return "0.001 0.001 0.001"
+    default:
+      return "0.0001 0.0001 0.0001";
   }
 }
 
