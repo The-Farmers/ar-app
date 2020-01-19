@@ -20,12 +20,12 @@ function getModelName() {
 function getModalScale() {
   switch (num) {
     case 1:
-      return "0.03 0.03 0.03";
+      return "0.025 0.025 0.025";
     case 2:
-      return "0.1 0.1 0.1";
+      return "0.07 0.07 0.07";
     case 3:
-      return "2 2 2";
+      return "1.3 1.3 1.3";
     default:
-      return "400 400 400";
+      return "350 350 350";
   }
 }
