@@ -1,3 +1,22 @@
+let num = 0;
+
+function toggle() {
+  num = (num + 1) % 4;
+}
+
+function getModelName() {
+  switch (num) {
+    case 1:
+      return "treeMode";
+    case 2:
+      return "#tomatoModel";
+    case 3:
+      return "#unicornModel";
+    default:
+      return "#flyingSaucerModel";
+  }
+}
+
 // Component that places trees where the ground is clicked
 AFRAME.registerComponent("tap-place", {
   init: function() {
@@ -14,7 +33,7 @@ AFRAME.registerComponent("tap-place", {
       newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
 
       newElement.setAttribute("visible", "false");
-      newElement.setAttribute("scale", "1 1 1");
+      newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
       newElement.setAttribute("gltf-model", getModelName());
       this.el.sceneEl.appendChild(newElement);
