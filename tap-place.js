@@ -32,7 +32,7 @@ function getModelScale() {
     case 4:
       return "1 1 1"
     case 5:
-      return "3 3 3"
+      return "5 5 5"
     default:
       return "1 1 1";
   }
