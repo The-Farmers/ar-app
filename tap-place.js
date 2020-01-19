@@ -1,7 +1,7 @@
 let num = 0;
 
 function toggle() {
-  num = (num + 1) % 5;
+  num = (num + 1) % 6;
 }
 
 function getModelName() {
