@@ -7,7 +7,7 @@ function toggle() {
 function getModelName() {
   switch (num) {
     case 1:
-      return "#treeMode";
+      return "#treeModel";
     case 2:
       return "#tomatoModel";
     case 3:
@@ -20,9 +20,9 @@ function getModelName() {
 function getModalScale() {
   switch (num) {
     case 1:
-      return "0.001 0.001 0.001";
-    case 2:
       return "0.1 0.1 0.1";
+    case 2:
+      return "10 10 10";
     case 3:
       return "0.3 0.3 0.3";
     default:
