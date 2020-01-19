@@ -28,7 +28,7 @@ function getModelScale() {
     case 3:
       return "0.03 0.03 0.03";
     case 4:
-      return "1 1 1"
+      return "100 100 100"
     default:
       return "0.0001 0.0001 0.0001";
   }
