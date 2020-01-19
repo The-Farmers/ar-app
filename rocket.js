@@ -166,7 +166,7 @@ AFRAME.registerComponent("launch-btn", {
     });
   }
 });
-
+/*
 AFRAME.registerComponent("tap-place", {
   schema: {
     event: { type: "string", default: "" }
@@ -221,3 +221,4 @@ AFRAME.registerComponent("tap-place", {
     // ground.removeEventListener('click', this.event)
   }
 });
+*/

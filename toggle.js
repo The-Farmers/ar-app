@@ -12,8 +12,10 @@ function getModelName() {
       return "#tomatoModel";
     case 3:
       return "#unicornModel";
-    default:
+    case 4:
       return "#flyingSaucerModel";
+    default:
+      return "#rocketModel";
   }
 }
 
@@ -25,7 +27,9 @@ function getModalScale() {
       return "0.05 0.05 0.05";
     case 3:
       return "0.4 0.4 0.4";
-    default:
+    case 4:
       return "200 200 200";
+    default:
+      return "10 10 10";
   }
 }
