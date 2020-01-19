@@ -29,4 +29,3 @@ function getModalScale() {
       return "300 300 300";
   }
 }
-}
