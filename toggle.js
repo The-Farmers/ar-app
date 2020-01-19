@@ -22,10 +22,10 @@ function getModalScale() {
     case 1:
       return "0.05 0.05 0.05";
     case 2:
-      return "1 1 1";
+      return "0.5 0.5 0.5";
     case 3:
-      return "0.6 0.6 0.6";
+      return "1 1 1";
     default:
-      return "500 500 50";
+      return "500 500 500";
   }
 }
