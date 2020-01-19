@@ -14,6 +14,8 @@ function getModelName() {
       return "#unicornModel";
     case 4:
     return "#lilyModel"
+    case 5:
+      return "#shrekModel"
     default:
       return "#flyingSaucerModel";
   }
@@ -28,6 +30,8 @@ function getModelScale() {
     case 3:
       return "0.4 0.4 0.4";
     case 4:
+      return "1 1 1"
+    case 5:
       return "1 1 1"
     default:
       return "1 1 1";
