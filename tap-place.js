@@ -14,7 +14,7 @@ AFRAME.registerComponent("tap-place", {
       newElement.setAttribute("rotation", "0 " + randomYRotation + " 0");
 
       newElement.setAttribute("visible", "false");
-      newElement.setAttribute("scale", getModalScale());
+      newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
       newElement.setAttribute("gltf-model", getModelName());
       this.el.sceneEl.appendChild(newElement);
