@@ -46,6 +46,6 @@ function getModalScale() {
     case 8:
       return "5 5 5";
     default:
-      return "5 5 5";
+      return "15 15 15";
   }
 }
