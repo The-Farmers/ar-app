@@ -17,7 +17,7 @@ function getModelName() {
     case 5:
       return "#flyingSaucerModel";
     case 6:
-      return "#pagodaModel";
+      return "#treebellModel";
     case 7:
       return "#lilyPadModel";
     case 8:
@@ -40,7 +40,7 @@ function getModalScale() {
     case 5:
       return "200 200 200";
     case 6:
-      return "0.18 0.18 0.18";
+      return "0.012 0.012 0.012";
     case 7:
       return "1 1 1";
     case 8:
