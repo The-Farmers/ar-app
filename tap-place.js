@@ -6,9 +6,6 @@ AFRAME.registerComponent("tap-place", {
       // Create new entity for the new object
       const newElement = document.createElement("a-entity");
 
-      if (getModelName() == "#rocketModel") {
-        newElement.classList.add("rocket")
-
       // The raycaster gives a location of the touch in the scene
       const touchPoint = event.detail.intersection.point;
       newElement.setAttribute("position", touchPoint);
